@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import MenuMobi from "./MenuMobi";
 const Menu = () => {
-  const [toggle, setToggle] = useState<boolean>(false);
+  const [isMenuHidden, setIsMenuHidden] = useState<boolean>(false);
+  const [isMenuMobi, setIsMenuMobi] = useState<boolean>(false);
   const settings: {} = {
     dots: true,
     infinite: false,
@@ -23,14 +25,19 @@ const Menu = () => {
       },
     ],
   };
-  const handlerToggle = () => {
-    console.log("🚀 ~ file: Menu.tsx:29 ~ handlerToggle ~ toggle", toggle);
-    setToggle(!toggle);
-  };
+  useEffect(() => {
+    function handleResize() {
+      setIsMenuHidden(window.innerWidth < 1024);
+      setIsMenuMobi(window.innerWidth < 1024);
+    }
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   return (
     <div className="">
-      <div className="slogan h-[40px] relative">
-        <h3 className=" h-full text-center pt-[10px] bg-[#cd6420] font-normal text-white">
+      <div className="slogan h-[40px] max-md:h-[30px] relative">
+        <h3 className="h-full text-center pt-[10px] bg-[#cd6420] font-normal text-white max-md:text-[12px]  max-md:pt-[7px]">
           CHÀO HÈ SÔI NỔI - MỎI TAY SĂN QUÀ - ƯU ĐÃI X3{" "}
         </h3>
         <div className="cursor-pointer">
@@ -40,7 +47,7 @@ const Menu = () => {
             viewBox="0 0 24 24"
             strokeWidth="1.2"
             stroke="currentColor"
-            className="absolute right-2 top-[11%] w-7 h-7 rounded-[100%] bg-[#e6b18f] text-center text-[#7f4a28]"
+            className="absolute right-2 top-[11%] w-7 h-7 rounded-[100%] bg-[#e6b18f] text-center text-[#7f4a28] max-md:w-5 max-md:h-5 max-md:top-[20%]"
           >
             <path
               strokeLinecap="round"
@@ -50,105 +57,29 @@ const Menu = () => {
           </svg>
         </div>
       </div>
-      <div className="flex py-[20px]">
-        <div className={window.innerWidth <= 1024 ? "" : "hidden "}>
-          {/* <div> */}
-          <div className="cursor-pointer" onClick={() => handlerToggle()}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              className="w-6 h-6"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-              />
-            </svg>
-            <div className={`${toggle ? "active" : ""} menu-1023`}>
-              <div className="flex w-full items-center py-[10px] px-[15px] gap-x-4 bg-[#080808]">
-                <div>
-                  <img
-                    src="https://images.unsplash.com/photo-1676321228272-0cccce03e290?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80"
-                    alt=""
-                    className="w-[30px] h-[30px] rounded-full object-cover"
-                  />
-                </div>
-                <div className="text-white text-[16px]">
-                  <div>Tài khoản</div>
-                  <div className="text-[12.8px] ">Đăng nhập</div>
-                </div>
-              </div>
-              <div className="text-[16px] py-[20px] px-[15px]">
-                <li>Trang chủ</li>
-                <li className="relative">
-                  <span>Sản phẩm</span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    className="w-5 h-5 absolute right-0 top-0"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                    />
-                  </svg>
-                </li>
-                <li className="relative">
-                  <span>Chương trình khuyến mãi</span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    className="w-5 h-5 absolute right-0 top-0"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                    />
-                  </svg>
-                </li>
-                <li>Đơn hàng</li>
-                <li>Hệ thống cửa hàng</li>
-                <li>Giới thiệu</li>
-                <li>Tin tức</li>
-                <li>Liên hệ</li>
-              </div>
-            </div>
-            <div className={`${toggle ? "active" : ""} menu-overlay`}></div>
-          </div>
-        </div>
+      <div className="flex py-[20px] max-lg:grid max-lg:grid-cols-3 items-center">
+        {isMenuMobi ? <MenuMobi></MenuMobi> : ""}
         <div>
-          <b className="text-[24px] px-[35px]">Nguyên</b>
+          <b className="text-[24px] px-[35px] max-md:ml-[-90px] ">Nguyên</b>
         </div>
         <div
           className={
-            window.innerWidth <= 1024
-              ? "hidden"
-              : "w-[800px]  max-xl:w-[550px] "
+            isMenuHidden ? "hidden" : "w-[800px]  max-xl:w-[550px] items-center"
           }
         >
           <Slider {...settings} className="text-center cursor-pointer">
-            <li>Trang chủ</li>
+            <li>
+              <span className="menu-hover">Trang chủ</span>
+            </li>
             <li className="relative">
-              <span>Sản phẩm</span>
+              <span className="menu-hover">Sản phẩm</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                className="w-5 h-5 absolute right-[14%] top-[15%]"
+                className="w-5 h-5 absolute right-[14%] top-[15%] max-xl:right-[0]"
               >
                 <path
                   stroke-linecap="round"
@@ -158,7 +89,7 @@ const Menu = () => {
               </svg>
             </li>
             <li className="relative">
-              <span>Chương trình khuyến mãi</span>
+              <span className="menu-hover">Chương trình khuyến mãi</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -174,15 +105,27 @@ const Menu = () => {
                 />
               </svg>
             </li>
-            <li>Đơn hàng</li>
-            <li>Hệ thống cửa hàng</li>
-            <li>Giới thiệu</li>
-            <li>Tin tức</li>
-            <li>Liên hệ</li>
+            <li>
+              <span className="menu-hover">Đơn hàng</span>
+            </li>
+            <li>
+              <span className="menu-hover">Hệ thống cửa hàng</span>
+            </li>
+            <li>
+              {" "}
+              <span className="menu-hover">Giới thiệu</span>
+            </li>
+            <li>
+              {" "}
+              <span className="menu-hover">Tin tức</span>
+            </li>
+            <li>
+              {" "}
+              <span className="menu-hover">Liên hệ</span>
+            </li>
           </Slider>
         </div>
-
-        <div className="flex ml-[100px] gap-x-5 ">
+        <div className="flex ml-[100px] max-lg:ml-[40px] gap-x-5 max-md:ml-[-70px] ">
           <div className="cursor-pointer">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -255,7 +198,7 @@ const Menu = () => {
   );
 };
 function SampleNextArrow(props: any) {
-  const { className, style, onClick } = props;
+  const { className, onClick } = props;
   return <div className={`${className} next`} onClick={onClick} />;
 }
 

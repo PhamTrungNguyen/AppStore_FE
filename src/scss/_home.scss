@@ -1,0 +1,82 @@
+.slick-arrow.prev {
+  left: 100%;
+  background-color: #b3b3b3;
+  border-radius: 90%;
+  padding-top: 1px;
+  transition: all 0.25s linear;
+}
+.slick-arrow.next {
+  transition: all 0.25s linear;
+  right: -8%;
+  background-color: #b3b3b3;
+  border-radius: 90%;
+  padding-top: 1px;
+}
+
+.slick-arrow.next:hover {
+  background-color: black;
+}
+.slick-arrow.prev:hover {
+  background-color: black;
+}
+.number {
+  position: absolute;
+  right: -10%;
+  top: -5%;
+  width: 20px;
+  height: 20px;
+  //   z-index: -10;
+  border-radius: 10px;
+  background-color: #da3f3f;
+}
+.menu-1023 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 300px;
+  z-index: 15;
+  background-color: #ffffff;
+  transform: translateX(-500px);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.35s linear;
+  li {
+    list-style: none;
+  }
+  li:not(:last-child) {
+    margin-bottom: 20px;
+  }
+}
+.menu-1023.active {
+  transform: translateX(0);
+}
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+
+  z-index: 10;
+}
+.menu-overlay.active {
+  display: block;
+}
+
+.menu-overlay.active {
+  display: block;
+}
+
+@media screen and (max-width: 1279px) {
+  .slick-arrow.prev {
+    left: 105%;
+  }
+  .slick-arrow.next {
+    right: -15%;
+  }
+}

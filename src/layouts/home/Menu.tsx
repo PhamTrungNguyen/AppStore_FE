@@ -1,16 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 const Menu = () => {
+  const [toggle, setToggle] = useState<boolean>(false);
   const settings: {} = {
     dots: true,
     infinite: false,
-    speed: 500,
+    speed: 700,
     slidesToShow: 5,
-    slidesToScroll: 1,
+    slidesToScroll: 5,
+
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 2,
+        },
+      },
+    ],
+  };
+  const handlerToggle = () => {
+    console.log("🚀 ~ file: Menu.tsx:29 ~ handlerToggle ~ toggle", toggle);
+    setToggle(!toggle);
   };
   return (
     <div className="">
@@ -36,10 +51,93 @@ const Menu = () => {
         </div>
       </div>
       <div className="flex py-[20px]">
+        <div className={window.innerWidth <= 1024 ? "" : "hidden "}>
+          {/* <div> */}
+          <div className="cursor-pointer" onClick={() => handlerToggle()}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+              />
+            </svg>
+            <div className={`${toggle ? "active" : ""} menu-1023`}>
+              <div className="flex w-full items-center py-[10px] px-[15px] gap-x-4 bg-[#080808]">
+                <div>
+                  <img
+                    src="https://images.unsplash.com/photo-1676321228272-0cccce03e290?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80"
+                    alt=""
+                    className="w-[30px] h-[30px] rounded-full object-cover"
+                  />
+                </div>
+                <div className="text-white text-[16px]">
+                  <div>Tài khoản</div>
+                  <div className="text-[12.8px] ">Đăng nhập</div>
+                </div>
+              </div>
+              <div className="text-[16px] py-[20px] px-[15px]">
+                <li>Trang chủ</li>
+                <li className="relative">
+                  <span>Sản phẩm</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    className="w-5 h-5 absolute right-0 top-0"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                    />
+                  </svg>
+                </li>
+                <li className="relative">
+                  <span>Chương trình khuyến mãi</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    className="w-5 h-5 absolute right-0 top-0"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                    />
+                  </svg>
+                </li>
+                <li>Đơn hàng</li>
+                <li>Hệ thống cửa hàng</li>
+                <li>Giới thiệu</li>
+                <li>Tin tức</li>
+                <li>Liên hệ</li>
+              </div>
+            </div>
+            <div className={`${toggle ? "active" : ""} menu-overlay`}></div>
+          </div>
+        </div>
         <div>
           <b className="text-[24px] px-[35px]">Nguyên</b>
         </div>
-        <div className="w-[800px]">
+        <div
+          className={
+            window.innerWidth <= 1024
+              ? "hidden"
+              : "w-[800px]  max-xl:w-[550px] "
+          }
+        >
           <Slider {...settings} className="text-center cursor-pointer">
             <li>Trang chủ</li>
             <li className="relative">
@@ -78,10 +176,12 @@ const Menu = () => {
             </li>
             <li>Đơn hàng</li>
             <li>Hệ thống cửa hàng</li>
-            <li>Trang chủ5</li>
-            <li>Trang chủ</li>
+            <li>Giới thiệu</li>
+            <li>Tin tức</li>
+            <li>Liên hệ</li>
           </Slider>
         </div>
+
         <div className="flex ml-[100px] gap-x-5 ">
           <div className="cursor-pointer">
             <svg

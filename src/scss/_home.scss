@@ -19,6 +19,12 @@
   z-index: 12;
   top: 45%;
 }
+.slick-arrow.next_coupon {
+  display: none;
+}
+.slick-arrow.prev_coupon {
+  display: none;
+}
 .slick-arrow.next_banner {
   right: 20px;
   background-color: #b3b18a30;
@@ -124,7 +130,7 @@
   box-shadow: inset rgba(0, 0, 0, 0.507) 0px 0px 4px 0px;
 }
 .coupon-item {
-  margin-right: 20px;
+  margin-left: 20px;
 }
 @media screen and (max-width: 1279px) {
   .slick-arrow.prev {
@@ -156,5 +162,8 @@
   }
   .card {
     padding-left: 20px;
+  }
+  .coupon-item {
+    margin-left: 10px;
   }
 }

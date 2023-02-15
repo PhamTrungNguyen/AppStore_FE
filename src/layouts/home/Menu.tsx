@@ -60,7 +60,7 @@ const Menu = () => {
       <div className="flex py-[20px] max-lg:grid max-lg:grid-cols-3 items-center">
         {isMenuMobi ? <MenuMobi></MenuMobi> : ""}
         <div>
-          <b className="text-[24px] px-[35px] max-md:ml-[-90px] ">Nguyên</b>
+          <b className="text-[24px] px-[35px] max-md:ml-[-90px] ">Rone</b>
         </div>
         <div
           className={
@@ -79,7 +79,7 @@ const Menu = () => {
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                className="w-5 h-5 absolute right-[14%] top-[15%] max-xl:right-[0]"
+                className="w-5 h-5 absolute right-[14%] top-[10%] max-xl:right-[0%] xl:right-[15%]"
               >
                 <path
                   stroke-linecap="round"
@@ -96,7 +96,7 @@ const Menu = () => {
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                className="w-5 h-5 absolute right-[-10%] top-[5%]"
+                className="w-5 h-5 absolute right-[-10%] top-[10%] max-xl:right-[-15%] xl:right-[-10%]"
               >
                 <path
                   stroke-linecap="round"
@@ -125,7 +125,7 @@ const Menu = () => {
             </li>
           </Slider>
         </div>
-        <div className="flex ml-[100px] max-lg:ml-[40px] gap-x-5 max-md:ml-[-70px] ">
+        <div className="flex ml-[100px] max-lg:ml-[40px] gap-x-5 max-md:ml-[-75px] ">
           <div className="cursor-pointer">
             <svg
               xmlns="http://www.w3.org/2000/svg"

@@ -19,7 +19,7 @@ const MenuMobi = () => {
     };
   }, [menuRef]);
   return (
-    <div className="cursor-pointer">
+    <div className="cursor-pointer ">
       <div className="w-7 h-7" onClick={() => setShowMenu(!showMenu)}>
         <svg
           xmlns="http://www.w3.org/2000/svg"

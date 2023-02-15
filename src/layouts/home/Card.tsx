@@ -43,7 +43,7 @@ const Card = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
   return (
-    <div className="pb-[70px]">
+    <div className="pb-[70px] max-md:pb-[40px] ">
       <h2 className="text-[36px] text-center">Thời trang Rone</h2>
       {screen ? (
         <div className="">

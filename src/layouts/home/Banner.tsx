@@ -27,7 +27,7 @@ const Banner = () => {
           <img src={banner_2} alt="" />
         </div>
       </Slider>
-      <div className="pt-[40px] pb-[55px] px-[40px] max-lg:px-[10px]  max-lg:pb-[30px] flex justify-between  max-lg:flex-wrap">
+      <div className="pt-[40px] pb-[55px] px-[40px] max-lg:px-[10px]  max-lg:pb-[30px] flex justify-between  max-lg:flex-wrap max-md:pb-[0px]  max-md:pt-[20px]">
         <Policy
           icon={icon_1}
           title="Miễn phí vận chuyển"

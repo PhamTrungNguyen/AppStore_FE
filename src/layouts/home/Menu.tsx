@@ -11,7 +11,7 @@ const Menu = () => {
     infinite: false,
     speed: 700,
     slidesToShow: 5,
-    slidesToScroll: 5,
+    slidesToScroll: 3,
 
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
@@ -20,7 +20,7 @@ const Menu = () => {
         breakpoint: 1024,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 2,
+          slidesToScroll: 3,
         },
       },
     ],
@@ -69,59 +69,51 @@ const Menu = () => {
         >
           <Slider {...settings} className="text-center cursor-pointer">
             <li>
-              <span className="menu-hover">Trang chủ</span>
-            </li>
-            <li className="relative">
-              <span className="menu-hover">Sản phẩm</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                className="w-5 h-5 absolute right-[14%] top-[10%] max-xl:right-[0%] xl:right-[15%]"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                />
-              </svg>
-            </li>
-            <li className="relative">
-              <span className="menu-hover">Chương trình khuyến mãi</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                className="w-5 h-5 absolute right-[-10%] top-[10%] max-xl:right-[-15%] xl:right-[-10%]"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                />
-              </svg>
+              <a className="link">
+                <span data-content="Trang chủ">Trang chủ</span>
+              </a>
             </li>
             <li>
-              <span className="menu-hover">Đơn hàng</span>
+              <a className="link">
+                <span data-content="Sản phẩm" className=" ml-[-40px]">
+                  Sản phẩm
+                </span>
+              </a>
             </li>
             <li>
-              <span className="menu-hover">Hệ thống cửa hàng</span>
+              <a className="link">
+                <span
+                  data-content="Chương trình khuyến mãi"
+                  className=" ml-[-30px] whitespace-nowrap"
+                >
+                  Chương trình khuyến mãi
+                </span>
+              </a>
             </li>
             <li>
-              {" "}
-              <span className="menu-hover">Giới thiệu</span>
+              <a className="link">
+                <span data-content="Đơn hàng">Đơn hàng</span>
+              </a>
             </li>
             <li>
-              {" "}
-              <span className="menu-hover">Tin tức</span>
+              <a className="link">
+                <span data-content="Hệ thống cửa hàng">Hệ thống cửa hàng</span>
+              </a>
             </li>
             <li>
-              {" "}
-              <span className="menu-hover">Liên hệ</span>
+              <a className="link">
+                <span data-content="Giới thiệu">Giới thiệu</span>
+              </a>
+            </li>
+            <li>
+              <a className="link">
+                <span data-content="Tin tức">Tin tức</span>
+              </a>
+            </li>
+            <li>
+              <a className="link">
+                <span data-content="Liên hệ">Liên hệ</span>
+              </a>
             </li>
           </Slider>
         </div>

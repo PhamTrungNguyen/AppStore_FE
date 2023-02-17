@@ -2,22 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 
 const MenuMobi = () => {
   const [showMenu, setShowMenu] = useState<boolean>(false);
-  const menuRef = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    function handleClickOutside(e: any) {
-      if (
-        menuRef.current &&
-        !menuRef.current.contains(e.target as Node) &&
-        !e.target.matches(".icon")
-      ) {
-        setShowMenu(false);
-      }
-    }
-    document.addEventListener("click", handleClickOutside);
-    return () => {
-      document.removeEventListener("click", handleClickOutside);
-    };
-  }, [menuRef]);
   return (
     <div className="cursor-pointer ">
       <div className="w-7 h-7" onClick={() => setShowMenu(!showMenu)}>
@@ -36,7 +20,11 @@ const MenuMobi = () => {
           />
         </svg>
       </div>
-      <div className={`${showMenu ? "active " : ""} menu-1023`} ref={menuRef}>
+      <div
+        className={`${showMenu ? "active " : ""} menu-1023`}
+        onClick={() => setShowMenu(true)}
+        
+      >
         <div className="flex w-full items-center py-[10px] px-[15px] gap-x-4 bg-[#080808]">
           <div>
             <img
@@ -93,7 +81,10 @@ const MenuMobi = () => {
           <li>Liên hệ</li>
         </div>
       </div>
-      <div className={`${showMenu ? "active" : ""} menu-overlay`}></div>
+      <div
+        className={`${showMenu ? "active" : ""} menu-overlay`}
+        onClick={() => setShowMenu(false)}
+      ></div>
     </div>
   );
 };

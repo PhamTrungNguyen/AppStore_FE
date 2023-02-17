@@ -32,7 +32,7 @@ const Coupon = () => {
     <div className="pl-[20px] pr-[40px] max-lg:pr-[20px] max-lg:pl-[10px]">
       <Slider
         {...settings}
-        className="cursor-pointer flex flex-row justify-between pb-[40px] max-md:pb-[20px] "
+        className="cursor-pointer flex flex-row justify-between pb-[40px] max-md:pb-[0px] "
       >
         <CouponItem icon={coupon_10}></CouponItem>
         <CouponItem icon={coupon_10}></CouponItem>

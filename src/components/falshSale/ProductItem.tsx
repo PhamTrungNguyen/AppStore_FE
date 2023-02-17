@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
+import CustomizedDialogs from "../dialog/Dialog";
 import Star from "../star/Star";
-
+//dialog way in reactjs css
 const ProductItem = (props: any) => {
+  const [open, setOpen] = useState(false);
   return (
     <div className="w-[216px] max-md:w-[163px]">
       <div className="product-image cursor-pointer duration-300 h-[324px] relative">
@@ -15,8 +17,54 @@ const ProductItem = (props: any) => {
           alt=""
           className="image-hover object-cover w-full h-full"
         />
+        <div className="product-view">
+          <div className="flex items-center rounded-lg  bg-white">
+            <div className="product-view_hover border-r-[1px] p-[10px] relative">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                className="w-5 h-5  duration-300 "
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
+                />
+              </svg>
+              <div className="tooltip tooltip1">Tùy chọn</div>
+            </div>
+            <div
+              className="product-view_hover p-[10px] relative"
+              onClick={() => setOpen(true)}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                className="w-5 h-5 hover:text-red-500 duration-300 "
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"
+                />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                />
+              </svg>
+              <div className="tooltip">Xem nhanh</div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div className="px-[10px] py-[15px]">
+      <div className="px-[10px] py-[15px] ">
         <div className="flex justify-between">
           <span className="uppercase text-[#969696]">mango</span>
           <svg
@@ -33,7 +81,7 @@ const ProductItem = (props: any) => {
             />
           </svg>
         </div>
-        <h3 className="font-normal">Váy Arta</h3>
+        <h3 className="product-name font-normal">Váy Arta</h3>
         <div className="flex items-center mt-[5px]">
           <Star></Star>
           <Star></Star>
@@ -51,7 +99,21 @@ const ProductItem = (props: any) => {
             -50%
           </div>
         </div>
+        <div className="relative mt-[10px]">
+          <progress value="50" max="100"></progress>
+          <span className="absolute w-full text-center top-[2%] left-[50%] translate-x-[-50%] text-[12px] font-medium text-[#27190c]">
+            Đã bán 100 sản phẩm
+          </span>
+        </div>
       </div>
+      <CustomizedDialogs
+        check={open}
+        getOpen={(item: any) => {
+          setOpen(item);
+        }}
+        image1={props.icon1}
+        image2={props.icon2}
+      ></CustomizedDialogs>
     </div>
   );
 };

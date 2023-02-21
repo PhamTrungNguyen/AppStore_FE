@@ -1,0 +1,34 @@
+.account-text {
+  position: relative;
+  font-weight: 600;
+  color: black;
+  overflow: hidden;
+  background: linear-gradient(to right, #f9a312 50%, black 50%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  background-position: 100%;
+  transition: background-position 300ms ease;
+  text-decoration: none; // text decorations are clipped in WebKit browsers
+  &:hover {
+    background-position: 0 100%;
+  }
+}
+table {
+  width: 100%;
+  text-align: left;
+}
+th {
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+  padding: 5px 0;
+}
+td {
+  padding-bottom: 10px;
+}
+td,
+th {
+  // padding-right: 100px;
+  padding-left: 10px;
+}

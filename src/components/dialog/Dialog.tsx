@@ -51,6 +51,15 @@ export default function CustomizedDialogs({ check, getOpen, ...props }: any) {
   const [open, setOpen] = React.useState(false);
   const [active, setActive] = React.useState("s");
   const [changeImage, setChangeImage] = React.useState(props.image1);
+  const [number, setNumber] = React.useState(0);
+  const handlerIncrease = () => {
+    setNumber((number) => number + 1);
+  };
+  const handlerReduce = () => {
+    if (number <= 0) {
+      setNumber(0);
+    } else setNumber((number) => number - 1);
+  };
   const handlerClickSize = (e: any, size: string) => {
     setActive(size);
   };
@@ -183,6 +192,44 @@ export default function CustomizedDialogs({ check, getOpen, ...props }: any) {
                   <li>Hỗ trợ 10.000 phí Ship cho đơn hàng từ 200.000đ </li>
                   <li>Miễn phí Ship cho đơn hàng từ 300.000đ </li>
                   <li>Đổi trả trong 30 ngày nếu sản phẩm lỗi bất kì </li>
+                </div>
+                <div className="mt-[20px] flex  gap-x-[10px]">
+                  <div className="flex items-center gap-x-[40px] max-md:gap-x-[20px] rounded-lg p-[10px] border-[1px] text-[14p]x">
+                    <svg
+                      onClick={() => handlerReduce()}
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth="1.5"
+                      stroke="currentColor"
+                      className="w-5 h-5 cursor-pointer hover:text-[#cd6420] duration-300"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M19.5 12h-15"
+                      />
+                    </svg>
+                    <span>{number}</span>
+                    <svg
+                      onClick={() => handlerIncrease()}
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth="1.5"
+                      stroke="currentColor"
+                      className="w-5 h-5 cursor-pointer hover:text-[#cd6420] duration-300"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M12 4.5v15m7.5-7.5h-15"
+                      />
+                    </svg>
+                  </div>
+                  <button className="w-full rounded-lg uppercase text-[#cd6420] text-[15px] py-[5px] border-[#cd6420] border-[1px] hover:bg-[#cd6420] hover:text-white duration-300">
+                    Thêm vào giỏ
+                  </button>
                 </div>
               </div>
             </div>

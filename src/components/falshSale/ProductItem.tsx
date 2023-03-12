@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import CustomizedDialogs from "../dialog/Dialog";
+import CustomizedDialogs from "../dialog/DialogViewProduct";
 import Star from "../star/Star";
 //dialog way in reactjs css
 const ProductItem = (props: any) => {

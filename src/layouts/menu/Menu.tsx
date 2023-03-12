@@ -84,7 +84,7 @@ const Menu = () => {
           >
             <Slider {...settings} className="text-center cursor-pointer">
               <li>
-                <a className="link">
+                <a className="link" href="/">
                   <span data-content="Trang chủ">Trang chủ</span>
                 </a>
               </li>

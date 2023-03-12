@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import Input from "../components/input/Input";
 import GoogleLogin from "react-google-login";
-import axios from "axios";
 import InputPassword from "../components/input/InputPassword";
 import { handlerAPIPost } from "../services/HandlerService";
 import { useNavigate } from "react-router-dom";
@@ -64,10 +63,6 @@ const SignInPage = () => {
     }
   };
   const responseGoogle = async (response: any) => {
-    console.log(
-      "🚀 ~ file: SignInPage.tsx:67 ~ responseGoogle ~ response:",
-      response
-    );
     try {
       const data: any = {
         email: response.profileObj.email,
@@ -86,9 +81,9 @@ const SignInPage = () => {
           delay: 0,
           autoClose: 1500,
         });
-        setTimeout(() => {
-          window.location.reload();
-        }, 1300);
+        // setTimeout(() => {
+        //   window.location.reload();
+        // }, 1300);
       }
     } catch (error: any) {
       toast.error("Đăng nhập thất bại", {
@@ -96,9 +91,9 @@ const SignInPage = () => {
         delay: 0,
         autoClose: 1500,
       });
-      setTimeout(() => {
-        window.location.reload();
-      }, 1300);
+      // setTimeout(() => {
+      //   window.location.reload();
+      // }, 1300);
     }
   };
   useEffect(() => {

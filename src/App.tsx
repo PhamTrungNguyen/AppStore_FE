@@ -10,14 +10,21 @@ import { gapi } from "gapi-script";
 import DetailAccount from "./pages/DetailAccount";
 import AddressAccount from "./layouts/account/AddressAccount";
 import InfoAccount from "./layouts/account/InfoAccount";
+import Manage from "./pages/Manage";
+import AddProduct from "./layouts/manage/AddProduct";
+import ListProduct from "./layouts/manage/ListProduct";
+import UpdateProduct from "./layouts/manage/UpdateProduct";
 
 function App() {
-  gapi.load("client:auth2", () => {
-    gapi.client.init({
-      clientId: "*****.apps.googleusercontent.com",
-      plugin_name: "chat",
+  window.gapi.load("client:auth2", () => {
+    window.gapi.client.init({
+      clientId:
+        "879686866490-h6lrohu4tol65rg2m4d23j92d17gd1an.apps.googleusercontent.com",
+      scope: "email",
+      plugin_name: "App Name that you used in google developer console API",
     });
   });
+
   window.Buffer = window.Buffer || require("buffer").Buffer;
   return (
     <Routes>
@@ -30,6 +37,17 @@ function App() {
           <Route
             path="/account/address"
             element={<AddressAccount></AddressAccount>}
+          ></Route>
+        </Route>
+        <Route element={<Manage></Manage>}>
+          <Route path="/manage" element={<AddProduct></AddProduct>}></Route>
+          <Route
+            path="/manage/list"
+            element={<ListProduct></ListProduct>}
+          ></Route>
+          <Route
+            path="/manage/update/:id"
+            element={<UpdateProduct></UpdateProduct>}
           ></Route>
         </Route>
       </Route>

@@ -1,22 +1,24 @@
 import React from "react";
 import { useController } from "react-hook-form";
-const Input = (props: any) => {
+const Select = (props: any) => {
   const { field } = useController(props);
   return (
     <div className="flex flex-col items-start mb-[10px]">
       <label htmlFor={props.name} className="text-[14px] mb-[5px]">
         {props.children} <span className="text-red-500">*</span>
       </label>
-      <input
+      <select
         {...field}
         id={props.name}
         name={props.name}
-        type={props.type}
-        placeholder={props.placeholder}
-        className="px-[15px] py-[10px] duration-300 rounded-md w-[300px] border-[1px] focus:border-[#2EBAC1] focus:bg-white  outline-none "
-      ></input>
+        className="px-[15px] py-[10px] duration-300 rounded-md w-[200px] border-[1px] focus:border-[#2EBAC1] focus:bg-white  outline-none uppercase font-semibold "
+      >
+        <option value="EGANY">EGANY</option>
+        <option value="MANGO">MANGO</option>
+        <option value="LEVI">LEVI</option>
+      </select>
     </div>
   );
 };
 
-export default Input;
+export default Select;

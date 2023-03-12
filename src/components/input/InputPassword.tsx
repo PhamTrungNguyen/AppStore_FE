@@ -18,7 +18,7 @@ const InputPassword = (props: any) => {
           name={props.name}
           type={togglePassword ? "text" : "password"}
           placeholder={props.placeholder}
-          className=" px-[15px] py-[10px] duration-300 rounded-md w-[350px] border-[1px] focus:border-[#2EBAC1] focus:bg-white  outline-none "
+          className=" px-[15px] py-[10px] duration-300 rounded-md w-[300px] border-[1px] focus:border-[#2EBAC1] focus:bg-white  outline-none "
         ></input>
         {/* toggle password */}
         {togglePassword ? (
